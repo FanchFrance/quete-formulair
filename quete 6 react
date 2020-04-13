@@ -1,0 +1,37 @@
+import React, { Component } from "react";
+
+const SIGN = "*";
+class MyTitleForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    if (event.target.value.includes(SIGN)) {
+      this.setState({ title: event.target.value });
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>
+          <strong>{this.state.title}</strong>
+        </h1>
+        <label htmlFor="title">Title :</label>
+        <input
+          //className={iWarnYou ? "try something else" : ""}
+          id="title"
+          type="text"
+          value={this.state.title}
+          onChange={this.handleChange}
+        />
+      </div>
+    );
+  }
+}
+
+export default MyTitleForm;
